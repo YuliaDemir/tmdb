@@ -30,7 +30,7 @@ export function Modal({
     };
   }, [open, onClose]);
 
-  if (!open || !mounted) return null;
+  if (!open) return null;
 
   return createPortal(
     <div
