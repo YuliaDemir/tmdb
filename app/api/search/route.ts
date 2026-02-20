@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import { tmdbFetch } from "@/src/lib/tmdb";
 
 type TmdbSearchResponse = {

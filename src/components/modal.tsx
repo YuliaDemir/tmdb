@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { ModalProps } from '../types/props';
+import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
+
+import { ModalProps } from "../types/props";
 
 export function Modal({
   open,
@@ -11,24 +12,20 @@ export function Modal({
   children,
   closeOnOverlayClick = true,
 }: ModalProps) {
-
-  const [mounted, setMounted] = React.useState(false);
-  useEffect(() => setMounted(true), []);
-
   useEffect(() => {
     if (!open) return;
 
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
 
-    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
 
     const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = prevOverflow;
     };
   }, [open, onClose]);
@@ -86,6 +83,6 @@ export function Modal({
         <div className="pointer-events-none absolute -bottom-24 left-1/2 h-48 w-[520px] -translate-x-1/2 rounded-full bg-[#FADD09]/10 blur-3xl" />
       </div>
     </div>,
-    document.body
+    document.body,
   );
-} 
+}

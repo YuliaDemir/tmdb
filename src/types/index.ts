@@ -1,5 +1,4 @@
-
-type Item = {
+export type Item = {
   id: number;
   title?: string;
   name?: string;
