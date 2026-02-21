@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { useOnSearch } from "@/src/lib/use-on-search";
 
 export default function Home() {
-  const [loading, items, error, onSearch] = useOnSearch();
+  const {loading, items, error, onSearch} = useOnSearch();
 
   const sortedItems = useMemo(() => {
     return items.toSorted(
@@ -36,7 +36,7 @@ export default function Home() {
 
           {!items.length && (
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-sm text-zinc-300 backdrop-blur-xl">
-              Try searching for something like{" "}
+              Type something into e{" "}
               <span className="text-zinc-50">“Dune”</span>,{" "}
               <span className="text-zinc-50">“Fight Club”</span>,{" "}
               <span className="text-zinc-50">“Dark”</span>.

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Item } from "../types";
 
 export function useOnSearch() {
   const [loading, setLoading] = useState(false);
@@ -26,5 +27,5 @@ export function useOnSearch() {
     }
   }
 
-  return [loading, items, error, onSearch] as const;
+  return {loading, items, error, onSearch};
 }
