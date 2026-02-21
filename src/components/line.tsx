@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { memo } from "react";
+
 import { Item } from "../types";
 
 const TMDB_IMG = "https://image.tmdb.org/t/p/w500";

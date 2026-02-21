@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { Item } from "../types";
 
 export function useOnSearch() {
@@ -27,5 +28,5 @@ export function useOnSearch() {
     }
   }
 
-  return {loading, items, error, onSearch};
+  return { loading, items, error, onSearch };
 }

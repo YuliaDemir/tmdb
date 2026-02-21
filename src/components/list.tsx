@@ -2,8 +2,8 @@
 import { Line } from "@components";
 import { memo, useState } from "react";
 
-import { Modal } from "./modal";
 import { Item } from "../types";
+import { Modal } from "./modal";
 
 export const List = memo(({ items }: { items: Item[] }) => {
   const [selected, setSelected] = useState<Item | null>(null);
