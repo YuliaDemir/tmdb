@@ -1,15 +1,12 @@
 "use client";
 
-import Link from "next/link";
+import { WatchList } from "@components";
 import { useState } from "react";
-import { Modal, WatchList } from "@components";
 
-const href = "/watchlist";
 const label = "Your Watchlist";
 
 export function WatchlistBubble() {
   const [open, setOpen] = useState(false);
-  const [openListed, setOpenListed] = useState(false);
 
   const cornerClasses = "bottom-6 right-6";
 
@@ -21,7 +18,6 @@ export function WatchlistBubble() {
           onMouseLeave={() => setOpen(false)}
           onFocus={() => setOpen(true)}
           onBlur={() => setOpen(false)}
-          onClick={() => setOpenListed(true)}
           aria-label={label}
           className={[
             "group inline-flex items-center gap-3",
@@ -71,7 +67,7 @@ export function WatchlistBubble() {
             <span className="pointer-events-none absolute inset-x-3 bottom-1 h-px bg-linear-to-r from-transparent via-[#FADD09]/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
           </span>
 
-          <span
+          <div
             className={[
               "min-w-0 pr-1 text-sm font-medium text-zinc-100",
               "transition-all duration-300",
@@ -80,23 +76,10 @@ export function WatchlistBubble() {
                 : "opacity-0 -translate-x-2 pointer-events-none",
             ].join(" ")}
           >
-            <span className="block truncate">
-              {label}
-              <span className="ml-2 text-[#FADD09]/80">→</span>
-            </span>
-            <span className="block text-[11px] text-zinc-400 -mt-0.5">
-              Watchlist
-            </span>
-          </span>
+            <WatchList />
+          </div>
         </div>
       </div>
-      <Modal
-        open={openListed}
-        onClose={() => setOpenListed(false)}
-        title={label}
-      >
-        <WatchList />
-      </Modal>
     </>
   );
 }
