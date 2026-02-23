@@ -12,8 +12,11 @@ type TmdbSearchResponse = {
     first_air_date?: string;
     overview?: string;
     poster_path?: string | null;
+    vote_average?: number;
+    vote_count?: number;
   }>;
 };
+
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -23,7 +26,7 @@ export async function GET(req: Request) {
   const data = await tmdbFetch<TmdbSearchResponse>("/search/multi", {
     query: q,
     include_adult: false,
-    language: "ru-RU",
+    language: "en-EN",
     page: 1,
   });
 

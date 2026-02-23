@@ -31,7 +31,7 @@ export const Header = () => {
       >
         <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(900px_circle_at_15%_0%,rgba(250,204,21,0.14),transparent_55%),radial-gradient(700px_circle_at_85%_25%,rgba(239,68,68,0.10),transparent_55%)]" />
 
-        <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#FADD09]/35 to-transparent opacity-80" />
+        <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-linear-to-r from-transparent via-[#FADD09]/35 to-transparent opacity-80" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex items-center justify-between gap-4 py-1">
@@ -44,13 +44,13 @@ export const Header = () => {
             <div className="flex  gap-4">
               <div
                 onClick={() => setOpenedModal("login")}
-                className="hidden shrink-0 sm:inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-1.5xl text-zinc-900 cursor-pointer"
+                className="hidden shrink-0 sm:inline-flex items-center rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-1.5xl text-zinc-900 cursor-pointer"
               >
                 log in
               </div>
               <div
                 onClick={() => setOpenedModal("register")}
-                className="hidden shrink-0 sm:inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-1.5xl text-zinc-900 cursor-pointer"
+                className="hidden shrink-0 sm:inline-flex items-center rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-1.5xl text-zinc-900 cursor-pointer"
               >
                 register
               </div>
@@ -61,7 +61,7 @@ export const Header = () => {
         <div
           className={[
             "pointer-events-none absolute inset-x-3 bottom-0 h-px",
-            "bg-gradient-to-r from-transparent via-white/10 to-transparent",
+            "bg-linear-to-r from-transparent via-white/10 to-transparent",
             "transition-opacity",
             scrolled ? "opacity-100" : "opacity-60",
           ].join(" ")}

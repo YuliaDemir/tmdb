@@ -17,7 +17,7 @@ export const Form = ({
         e.preventDefault();
         onSearch(q);
       }}
-      className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl
+      className="mt-6 rounded-2xl border border-white/10 bg-white/4 p-4 backdrop-blur-xl
                      shadow-[0_10px_35px_rgba(0,0,0,0.45)]"
     >
       <div className="flex flex-col gap-3 sm:flex-row">
@@ -34,17 +34,17 @@ export const Form = ({
                            placeholder:text-zinc-500 shadow-inner shadow-black/20
                            focus:outline-none focus:ring-2 focus:ring-[#FADD09]/60 focus:border-[#FADD09]/30"
           />
-          <div className="pointer-events-none absolute inset-x-3 bottom-1 h-px bg-gradient-to-r from-transparent via-[#FADD09]/30 to-transparent opacity-70" />
+          <div className="pointer-events-none absolute inset-x-3 bottom-1 h-px bg-linear-to-r from-transparent via-[#FADD09]/30 to-transparent opacity-70" />
         </div>
 
         <button
           disabled={loading || !q.trim()}
           className="group inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
                          text-[#07070A] transition
-                         bg-gradient-to-b from-[#FADD09] to-[#E6C707]
+                         bg-linear-to-b from-[#FADD09] to-[#E6C707]
                          shadow-[0_10px_25px_rgba(250,221,9,0.18)]
                          hover:shadow-[0_14px_35px_rgba(250,221,9,0.22)]
-                         active:translate-y-[1px]
+                         active:translate-y-px
                          disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
         >
           {loading ? (
@@ -70,7 +70,7 @@ export const Form = ({
           <span className="text-zinc-200">“Dark”</span>
         </p>
 
-        <span className="hidden sm:inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-zinc-300">
+        <span className="hidden sm:inline-flex items-center rounded-full border border-white/10 bg-white/3 px-2.5 py-1 text-[11px] text-zinc-300">
           TMDB powered
         </span>
       </div>

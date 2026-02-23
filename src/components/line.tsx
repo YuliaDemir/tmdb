@@ -13,7 +13,7 @@ export const Line = memo(({ item }: { item: Item }) => {
     <>
       <div
         className="pointer-events-none absolute opacity-0 group-hover:opacity-100 transition
-                              [filter:blur(18px)]
+                              filter-[blur(18px)]
                               -inset-x-10 -inset-y-8
                               [background:radial-gradient(600px_circle_at_30%_0%,rgba(250,221,9,0.10),transparent_55%),radial-gradient(500px_circle_at_80%_10%,rgba(205,31,21,0.08),transparent_60%)]"
       />
@@ -47,7 +47,7 @@ export const Line = memo(({ item }: { item: Item }) => {
           </p>
         </div>
       </div>
-      <div className="relative mt-4 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="relative mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
     </>
   );
 });
