@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { watchListSlice } from "./watch-list-slice";
+
 import { watchListPersistMiddleware } from "./watch-list-persist-middleware";
+import { watchListSlice } from "./watch-list-slice";
 
 export const store = configureStore({
   reducer: { watchList: watchListSlice.reducer },

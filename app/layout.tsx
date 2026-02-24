@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { WatchlistBubble } from "@components";
+
 import { Providers } from "@/src/store/providers";
 
 export const metadata: Metadata = {
