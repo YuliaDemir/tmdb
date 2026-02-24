@@ -2,10 +2,10 @@
 import { Line, Modal } from "@components";
 import { memo, useState } from "react";
 
-import { Item } from "../types";
+import { Film } from "../types";
 
-export const List = memo(({ items }: { items: Item[] }) => {
-  const [selected, setSelected] = useState<Item | null>(null);
+export const List = memo(({ items }: { items: Film[] }) => {
+  const [selected, setSelected] = useState<Film | null>(null);
 
   return (
     <>
@@ -27,7 +27,7 @@ export const List = memo(({ items }: { items: Item[] }) => {
         onClose={() => setSelected(null)}
         title={selected?.title}
       >
-        <Line item={selected as Item} />
+        <Line item={selected as Film} />
       </Modal>
     </>
   );

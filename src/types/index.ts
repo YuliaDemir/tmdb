@@ -1,4 +1,4 @@
-export type Item = {
+export type Film = {
   id: number;
   title?: string;
   name?: string;

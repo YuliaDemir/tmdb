@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { WatchlistBubble } from "@components";
+import { Providers } from "@/src/store/providers";
 
 export const metadata: Metadata = {
   title: "Popcorn Picks",
@@ -17,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` antialiased`}>
-        {children}
-        <WatchlistBubble />
+        <Providers>
+          {children}
+          <WatchlistBubble />
+        </Providers>
       </body>
     </html>
   );

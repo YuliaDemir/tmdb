@@ -21,13 +21,12 @@ export function WatchlistBubble() {
           aria-label={label}
           className={[
             "group inline-flex items-center gap-3",
-            "h-12 rounded-full",
             "border border-white/10 bg-white/6 backdrop-blur-xl",
             "shadow-[0_10px_35px_rgba(0,0,0,0.45)]",
-            "transition-all duration-300 ease-out",
+            "transition-width duration-300 ease-out",
             "hover:border-white/16 hover:bg-white/8",
             "focus:outline-none focus:ring-2 focus:ring-[#FADD09]/60 focus:border-[#FADD09]/30",
-            open ? "w-62 px-0" : "w-12 px-0",
+            open ? "w-xl h-auto rounded-3xl" : "w-12 h-12 rounded-full",
           ].join(" ")}
         >
           <span className="relative grid h-12 w-12 place-items-center rounded-full">

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { memo } from "react";
 
-import { Item } from "../types";
+import { Film } from "../types";
 
 const TMDB_IMG = "https://image.tmdb.org/t/p/w500";
 
-export const Line = memo(({ item }: { item: Item }) => {
+export const Line = memo(({ item }: { item: Film }) => {
   const posterPath = item.poster_path
     ? TMDB_IMG + item.poster_path
     : "/no-poster.png";

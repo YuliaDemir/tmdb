@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { Item } from "../types";
+import { Film } from "../types";
 
 export function useOnSearch() {
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Film[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   async function onSearch(q: string) {
