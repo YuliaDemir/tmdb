@@ -1,7 +1,7 @@
 "use client";
 
 import { Input, Loading } from "@components";
-import { badgeClass, buttonBaseClass, formClass, zincText } from "@tconst";
+import { buttonBaseClass, formClass, zincText } from "@tconst";
 import { useState } from "react";
 
 import { tryFilms } from "../constants";

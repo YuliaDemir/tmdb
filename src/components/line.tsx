@@ -1,13 +1,11 @@
-import Image from "next/image";
+"use client";
+
+import { Poster } from "@components";
 import { memo } from "react";
 
-import { TMDB_IMG } from "../constants";
 import { Film } from "../types";
 
 export const Line = memo(({ item }: { item: Film }) => {
-  const posterPath = item.poster_path
-    ? TMDB_IMG + item.poster_path
-    : "/no-poster.png";
   return (
     <>
       <div
@@ -17,11 +15,9 @@ export const Line = memo(({ item }: { item: Film }) => {
                               [background:radial-gradient(600px_circle_at_30%_0%,rgba(250,221,9,0.10),transparent_55%),radial-gradient(500px_circle_at_80%_10%,rgba(205,31,21,0.08),transparent_60%)]"
       />
       <div className="relative flex items-start gap-4">
-        <Image
-          src={posterPath}
-          alt={item.title ?? item.name ?? "Poster"}
-          width={150}
-          height={225}
+        <Poster
+          title={item.title ?? item.name ?? "Poster"}
+          posterPath={item.poster_path || ""}
         />
         <div className="flex flex-col gap-4 relative w-full">
           <div className="relative flex items-start justify-between gap-3">
