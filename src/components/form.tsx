@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { badgeClass, buttonBaseClass, formClass, zincText } from "@tconst";
-import { cn } from "../lib/utils";
 import { Input, Loading } from "@components";
+import { badgeClass, buttonBaseClass, formClass, zincText } from "@tconst";
+import { useState } from "react";
+
 import { tryFilms } from "../constants";
+import { cn } from "../lib/utils";
 
 export const Form = ({
   onSearch,
@@ -26,10 +27,7 @@ export const Form = ({
       <div className="flex flex-col gap-3 sm:flex-row">
         <Input value={q} onChange={setQ} />
 
-        <button
-          disabled={loading || !q.trim()}
-          className={buttonBaseClass}
-        >
+        <button disabled={loading || !q.trim()} className={buttonBaseClass}>
           {loading ? (
             <Loading text="Searching..." />
           ) : (
@@ -44,10 +42,12 @@ export const Form = ({
       </div>
 
       <div className="mt-3 flex items-center justify-between">
-        <p className={cn( zincText, "text-xs")}>
-          Tip: try {" "}
+        <p className={cn(zincText, "text-xs")}>
+          Tip: try{" "}
           {tryFilms.map((film, i) => (
-            <span key={i} className={zincText}>“{film}”{i < tryFilms.length - 1 ? ", " : ""}</span>
+            <span key={i} className={zincText}>
+              “{film}”{i < tryFilms.length - 1 ? ", " : ""}
+            </span>
           ))}
           .
         </p>

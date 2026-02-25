@@ -1,8 +1,6 @@
 "use client";
 
 import { WatchList } from "@components";
-import { useState } from "react";
-import { cn } from "../lib/utils";
 import {
   watchlistCorner,
   bubbleWrapper,
@@ -17,6 +15,9 @@ import {
   panelClosed,
   panel,
 } from "@tconst";
+import { useState } from "react";
+
+import { cn } from "../lib/utils";
 
 const label = "Your Watchlist";
 

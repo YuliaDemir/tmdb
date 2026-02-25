@@ -1,5 +1,1 @@
-export const tryFilms = [
-    "Dune",
-    "Fight Club",
-    "Dark",
-] as const;
+export const tryFilms = ["Dune", "Fight Club", "Dark"] as const;

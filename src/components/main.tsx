@@ -1,5 +1,6 @@
 import { BG_RADIAL_GLOW, zincText } from "@tconst";
-import { cn } from "../lib/utils"
+
+import { cn } from "../lib/utils";
 
 export const Main = ({ children }: { children: React.ReactNode }) => {
   return (
