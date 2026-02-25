@@ -11,3 +11,5 @@ export { Login } from "./login";
 export { Modal } from "./modal";
 export { WatchlistBubble } from "./bubble";
 export { WatchList } from "./watch-list";
+export { Input } from "./input";
+export { Loading } from "./loading";
