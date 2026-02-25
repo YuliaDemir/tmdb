@@ -1,3 +1,5 @@
+import { zincText } from "@tconst";
+
 import { Film } from "@/src/types";
 
 import { List } from "./list";
@@ -135,7 +137,7 @@ export const WatchList = () => {
         <div className="rounded-2xl border border-white/10 bg-white/3 p-6 text-sm text-zinc-300 backdrop-blur-xl">
           Your watchlist is empty. Start adding movies and series to your
           watchlist by searching for them and clicking the{" "}
-          <span className="text-zinc-50">Add to Watchlist</span> button on their
+          <span className={zincText}>Add to Watchlist</span> button on their
           details page.
         </div>
       )}

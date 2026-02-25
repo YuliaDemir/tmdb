@@ -1,6 +1,6 @@
 "use client";
 
-import { WatchList } from "@components";
+import { WatchList, ListIcon } from "@components";
 import {
   watchlistCorner,
   bubbleWrapper,
@@ -14,6 +14,7 @@ import {
   panelOpen,
   panelClosed,
   panel,
+  zincText,
 } from "@tconst";
 import { useState } from "react";
 
@@ -37,26 +38,7 @@ export function WatchlistBubble() {
         <span className={iconWrap}>
           <span className={iconBg} />
           <span className={iconFg}>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M9 6h12M9 12h12M9 18h12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M4.5 6h.01M4.5 12h.01M4.5 18h.01"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
+            <ListIcon width={18} height={18} className={zincText} />
           </span>
 
           <span className={iconUnderline} />

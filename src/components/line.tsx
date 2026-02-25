@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { memo } from "react";
 
+import { TMDB_IMG } from "../constants";
 import { Film } from "../types";
-
-const TMDB_IMG = "https://image.tmdb.org/t/p/w500";
 
 export const Line = memo(({ item }: { item: Film }) => {
   const posterPath = item.poster_path
