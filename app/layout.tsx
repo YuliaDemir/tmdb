@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { WatchlistBubble } from "@components";
+import { Header, Main, WatchlistBubble } from "@components";
 
 import { Providers } from "@/src/store/providers";
 
@@ -20,7 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={` antialiased`}>
         <Providers>
-          {children}
+          <Header />
+          <Main>{children}</Main>
           <WatchlistBubble />
         </Providers>
       </body>

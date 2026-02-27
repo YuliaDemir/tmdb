@@ -49,8 +49,12 @@ export function Modal({
         role="dialog"
         aria-modal="true"
         aria-label={title ?? "Modal"}
-        className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-white/4.5 backdrop-blur-xl
-                 shadow-[0_20px_70px_rgba(0,0,0,0.65)]"
+        className="
+  relative flex flex-col w-fit
+  max-w-[min(48rem,calc(100vw-2rem))]
+  max-h-[calc(100vh-2rem)]
+  overflow-hidden rounded-2xl border border-white/10 bg-white/4.5 backdrop-blur-xl
+  shadow-[0_20px_70px_rgba(0,0,0,0.65)]"
       >
         <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-linear-to-r from-transparent via-[#FADD09]/35 to-transparent opacity-80" />
 
@@ -76,7 +80,7 @@ export function Modal({
           </button>
         </div>
 
-        <div className="p-4 sm:p-5 text-sm leading-relaxed text-zinc-200">
+        <div className="min-h-0 flex-1 overflow-auto p-4 sm:p-5 text-sm leading-relaxed text-zinc-200">
           {children}
         </div>
 

@@ -3,23 +3,23 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { TMDB_IMG } from "../constants";
+import { getAbsolutePosterPath } from "../lib/utils";
 import { Modal } from "./modal";
 
 export const Poster = ({
   title,
   posterPath,
+  size = "sm",
 }: {
-  title: string;
-  posterPath: string;
+  title?: string | null;
+  posterPath?: string | null;
+  size?: "sm" | "md";
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const absolutePosterPath = posterPath
-    ? TMDB_IMG + posterPath
-    : "/no-poster.png";
 
-  function handlePosterClick() {
+  function handlePosterClick(e: React.MouseEvent) {
     if (posterPath) {
+      e.stopPropagation();
       setOpenModal(true);
     }
   }
@@ -27,16 +27,20 @@ export const Poster = ({
   return (
     <>
       <Image
-        src={absolutePosterPath}
+        src={getAbsolutePosterPath(posterPath)}
         alt={title ?? "Poster"}
-        width={150}
-        height={225}
+        width={size === "md" ? 300 : 150}
+        height={size === "md" ? 450 : 225}
         onClick={handlePosterClick}
-        className={posterPath && "cursor-pointer"}
+        className={posterPath ? "cursor-pointer" : ""}
       />
-      <Modal open={openModal} onClose={() => setOpenModal(false)} title={title}>
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        title={title || "Poster"}
+      >
         <Image
-          src={absolutePosterPath}
+          src={getAbsolutePosterPath(posterPath)}
           alt={title || "Poster"}
           width={300}
           height={450}

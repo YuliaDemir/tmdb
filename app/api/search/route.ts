@@ -25,7 +25,7 @@ export async function GET(req: Request) {
   const data = await tmdbFetch<TmdbSearchResponse>("/search/multi", {
     query: q,
     include_adult: false,
-    language: "en-EN",
+    language: "en-US",
     page: 1,
   });
 

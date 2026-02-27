@@ -5,3 +5,10 @@ export type ModalProps = {
   children: React.ReactNode;
   closeOnOverlayClick?: boolean;
 };
+
+export type FilmInfoProps = {
+  year: string | undefined;
+  runtime: string | null;
+  rating: string | null;
+  votes: string | null;
+};

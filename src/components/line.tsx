@@ -1,6 +1,7 @@
 "use client";
 
 import { Poster } from "@components";
+import Link from "next/link";
 import { memo } from "react";
 
 import { Film } from "../types";
@@ -14,7 +15,10 @@ export const Line = memo(({ item }: { item: Film }) => {
                               -inset-x-10 -inset-y-8
                               [background:radial-gradient(600px_circle_at_30%_0%,rgba(250,221,9,0.10),transparent_55%),radial-gradient(500px_circle_at_80%_10%,rgba(205,31,21,0.08),transparent_60%)]"
       />
-      <div className="relative flex items-start gap-4">
+      <Link
+        href={`film/${item.id}`}
+        className="relative flex items-start gap-4"
+      >
         <Poster
           title={item.title ?? item.name ?? "Poster"}
           posterPath={item.poster_path || ""}
@@ -41,7 +45,7 @@ export const Line = memo(({ item }: { item: Film }) => {
             {item.overview || "No description."}
           </p>
         </div>
-      </div>
+      </Link>
       <div className="relative mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
     </>
   );
