@@ -8,6 +8,10 @@ export const watchListSlice = createSlice({
   name: "watchList",
   initialState,
   reducers: {
+    setWatchList: (_state, action: PayloadAction<Film[]>) => {
+      return action.payload;
+    },
+
     addItem: (state, action: PayloadAction<Film>) => {
       const exists = state.some((i) => i.id === action.payload.id);
       if (!exists) state.push(action.payload);
@@ -23,5 +27,6 @@ export const watchListSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearList } = watchListSlice.actions;
+export const { setWatchList, addItem, removeItem, clearList } =
+  watchListSlice.actions;
 export default watchListSlice.reducer;
