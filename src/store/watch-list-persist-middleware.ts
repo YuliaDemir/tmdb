@@ -1,8 +1,7 @@
 import type { Middleware } from "@reduxjs/toolkit";
 
+import { STORAGE_KEY } from "../constants";
 import { addItem, removeItem, clearList } from "./watch-list-slice";
-
-const STORAGE_KEY = "watchList";
 
 export const watchListPersistMiddleware: Middleware =
   (storeApi) => (next) => (action) => {

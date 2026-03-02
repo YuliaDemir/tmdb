@@ -19,3 +19,4 @@ export { Film } from "./film";
 export { BackButton } from "./back-button";
 export { InfoRounded } from "./info-rounded";
 export { FilmInfoBlock } from "./film-info-block";
+export { WatchListButton } from "./add-film-to-watchlist";

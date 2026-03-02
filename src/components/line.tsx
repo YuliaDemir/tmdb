@@ -1,6 +1,6 @@
 "use client";
 
-import { Poster } from "@components";
+import { Poster, WatchListButton } from "@components";
 import Link from "next/link";
 import { memo } from "react";
 
@@ -44,6 +44,7 @@ export const Line = memo(({ item }: { item: Film }) => {
           <p className="relative mt-3 text-sm leading-relaxed text-zinc-300 line-clamp-4">
             {item.overview || "No description."}
           </p>
+          <WatchListButton film={item} />
         </div>
       </Link>
       <div className="relative mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />

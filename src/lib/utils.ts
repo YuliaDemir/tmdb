@@ -1,8 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { TMDB_IMG } from "../constants";
-import { Credits, FilmApiResponse, TmdbPosterSize } from "../types";
+import { STORAGE_KEY, TMDB_IMG } from "../constants";
+import { Credits, Film, FilmApiResponse, TmdbPosterSize } from "../types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -42,3 +42,15 @@ export const getBaseUrl = () => {
   if (process.env.NEXT_PUBLIC_BASE_URL) return process.env.NEXT_PUBLIC_BASE_URL;
   return "http://localhost:3000";
 };
+
+export function loadWatchList(): Film[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const watchList = localStorage.getItem(STORAGE_KEY);
+    if (!watchList) return [];
+    const parsed = JSON.parse(watchList);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
