@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Film } from "../types";
+import { Film } from "@/src/types";
 
 export function useOnSearch() {
   const [loading, setLoading] = useState(false);

@@ -1,14 +1,8 @@
 import { BackButton, FilmInfoBlock, Poster } from "@components";
-import {
-  BG_RADIAL_GLOW,
-  containerClass,
-  errorPanelClass,
-  panelBase,
-} from "@tconst";
 
-import { cn, getFilm, getHourMinutesFilmDuration } from "@/src/lib/utils";
-
-import { FilmApiResponse } from "../types";
+import { getFilm, getHourMinutesFilmDuration } from "@/src/lib/utils";
+import { FilmApiResponse } from "@/src/types";
+import styles from "./film.module.scss";
 
 export const Film = async ({ id }: { id: string }) => {
   let data: FilmApiResponse | null = null;
@@ -35,26 +29,31 @@ export const Film = async ({ id }: { id: string }) => {
 
   return (
     <>
-      <div className={BG_RADIAL_GLOW} />
-      <div className="pointer-events-none fixed inset-0 bg-[#07070A]/70" />
-      <div className={containerClass}>
+      <div className={styles.glow} />
+      <div className={styles.overlay} />
+
+      <div className={styles.container}>
         <BackButton />
-        {error && <div className={cn(errorPanelClass, "mt-6")}>{error}</div>}
+
+        {error && <div className={styles.errorPanel}>{error}</div>}
+
         {data && !error && (
-          <div className={cn(panelBase, "mt-6 overflow-hidden p-0")}>
-            <div className="p-6 sm:p-7">
-              <div className="flex flex-col gap-6 sm:flex-row">
-                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/3 shadow-[0_10px_35px_rgba(0,0,0,0.45)]">
+          <div className={styles.panel}>
+            <div className={styles.content}>
+              <div className={styles.layout}>
+                <div className={styles.posterCard}>
                   <Poster
                     title={data.title}
                     posterPath={data.poster_path}
                     size="md"
                   />
                 </div>
+
                 <FilmInfoBlock film={data} meta={meta} />
               </div>
             </div>
-            <div className="h-px bg-linear-to-r from-transparent via-[#FADD09]/25 to-transparent" />
+
+            <div className={styles.divider} />
           </div>
         )}
       </div>

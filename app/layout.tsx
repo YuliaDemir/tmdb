@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "./globals.css";
+import "./globals.scss";
 import { Header, Main, WatchlistBubble } from "@components";
 
 import { Providers } from "@/src/store/providers";
@@ -22,6 +22,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <Main>{children}</Main>
+          
           <WatchlistBubble />
         </Providers>
       </body>

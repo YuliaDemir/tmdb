@@ -1,11 +1,10 @@
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 
 import { STORAGE_KEY, TMDB_IMG } from "../constants";
-import { Credits, Film, FilmApiResponse, TmdbPosterSize } from "../types";
+import { Credits, Film, FilmApiResponse, TmdbPosterSize } from "@/src/types";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+export function cn(...classes: (string | undefined | false | null)[]) {
+  return classes.filter(Boolean).join(" ");
 }
 
 export const getHourMinutesFilmDuration = (min?: number) => {

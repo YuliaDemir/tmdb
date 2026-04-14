@@ -1,4 +1,4 @@
-import { cn } from "../lib/utils";
+import { cn } from "@/src/lib/utils";
 
 export const containerClass =
   "relative mx-auto max-w-3xl px-4 pb-14 pt-8 sm:px-6";

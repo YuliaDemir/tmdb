@@ -1,18 +1,11 @@
 "use client";
 
 import { List, Form } from "@components";
-import {
-  containerClass,
-  errorPanelClass,
-  infoPanelClass,
-  silverText,
-  zincText,
-} from "@tconst";
 import { useMemo } from "react";
 
 import { useOnSearch } from "@/src/lib/use-on-search";
-import { cn } from "@/src/lib/utils";
 import { Film } from "@/src/types";
+import styles from "./page.module.scss";
 
 const byRatingThenVotes = (a: Film, b: Film) =>
   (b.vote_average ?? 0) - (a.vote_average ?? 0) ||
@@ -26,25 +19,25 @@ export default function Home() {
   }, [items]);
 
   return (
-    <>
-      <div className={containerClass}>
-        <Form onSearch={onSearch} loading={loading} />
+    <div className={styles.container}>
+      <Form onSearch={onSearch} loading={loading} />
 
-        <p className={cn(silverText, "mt-4 text-xs")}>
-          This product uses the TMDB API but is not endorsed or certified by
-          TMDB.
-        </p>
-        {(error && <div className={errorPanelClass}>{error}</div>) ||
-          (items.length > 0 && <List items={sortedItems} />)}
+      <p className={styles.note}>
+        This product uses the TMDB API but is not endorsed or certified by
+        TMDB.
+      </p>
 
-        {!items.length && (
-          <div className={infoPanelClass}>
-            Type something into e <span className={zincText}>“Dune”</span>,{" "}
-            <span className={zincText}>“Fight Club”</span>,{" "}
-            <span className={zincText}>“Dark”</span>.
-          </div>
-        )}
-      </div>
-    </>
+      {error ? (
+        <div className={styles.errorPanel}>{error}</div>
+      ) : items.length > 0 ? (
+        <List items={sortedItems} />
+      ) : (
+        <div className={styles.infoPanel}>
+          Type something into e <span className={styles.highlight}>“Dune”</span>,{" "}
+          <span className={styles.highlight}>“Fight Club”</span>,{" "}
+          <span className={styles.highlight}>“Dark”</span>.
+        </div>
+      )}
+    </div>
   );
 }

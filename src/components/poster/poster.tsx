@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { getAbsolutePosterPath } from "../lib/utils";
-import { Modal } from "./modal";
+import { getAbsolutePosterPath } from "@/src/lib/utils";
+import { Modal } from "@components";
+import styles from "./poster.module.scss";
 
 export const Poster = ({
   title,
@@ -32,8 +33,12 @@ export const Poster = ({
         width={size === "md" ? 300 : 150}
         height={size === "md" ? 450 : 225}
         onClick={handlePosterClick}
-        className={posterPath ? "cursor-pointer" : ""}
+        className={[
+          styles.poster,
+          posterPath ? styles.clickable : "",
+        ].join(" ")}
       />
+
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
@@ -44,7 +49,7 @@ export const Poster = ({
           alt={title || "Poster"}
           width={300}
           height={450}
-          className="rounded-lg"
+          className={styles.modalImage}
         />
       </Modal>
     </>

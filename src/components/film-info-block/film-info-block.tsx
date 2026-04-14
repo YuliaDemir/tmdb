@@ -1,9 +1,8 @@
 import { InfoRounded } from "@components";
-import { zincText, silverText } from "@tconst";
+import styles from "./film-info-block.module.scss";
 
-import { cn } from "../lib/utils";
-import { FilmApiResponse } from "../types";
-import { FilmInfoProps } from "../types/props";
+import { FilmApiResponse } from "@/src/types";
+import { FilmInfoProps } from "@/src/types/props";
 
 export const FilmInfoBlock = ({
   film,
@@ -13,12 +12,12 @@ export const FilmInfoBlock = ({
   meta: FilmInfoProps;
 }) => {
   return (
-    <div className="min-w-0 flex-1">
-      <h1 className={cn(zincText, "text-2xl font-semibold tracking-tight")}>
+    <div className={styles.container}>
+      <h1 className={styles.title}>
         {film.title || "Untitled"}
       </h1>
 
-      <div className={cn(silverText, "mt-2 flex flex-wrap gap-2 text-xs")}>
+      <div className={styles.meta}>
         <InfoRounded
           data={
             [
@@ -30,23 +29,24 @@ export const FilmInfoBlock = ({
             ] as string[]
           }
         />
+
         <InfoRounded
           data={[
             <>
-              Director: <span className={zincText}>{film?.director?.name}</span>
+              Director:{" "}
+              <span className={styles.highlight}>
+                {film?.director?.name}
+              </span>
             </>,
           ]}
         />
       </div>
 
       {film.genres?.length ? (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className={styles.genres}>
           <InfoRounded
             data={film.genres.slice(0, 8).map((g) => (
-              <span
-                key={g.id}
-                className="px-2.5 py-1 text-[11px] text-zinc-300"
-              >
+              <span key={g.id} className={styles.genreItem}>
                 {g.name}
               </span>
             ))}
@@ -54,7 +54,7 @@ export const FilmInfoBlock = ({
         </div>
       ) : null}
 
-      <p className={cn(silverText, "mt-5 leading-relaxed")}>
+      <p className={styles.description}>
         {film.overview || "No overview yet."}
       </p>
     </div>

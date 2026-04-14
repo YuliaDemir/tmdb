@@ -1,12 +1,10 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
-
 import type { RootState, AppDispatch } from "@/src/store/store";
-
 import { addItem, removeItem } from "@/src/store/watch-list-slice";
-
-import type { Film } from "../types";
+import type { Film } from "@/src/types";
+import styles from "./add-film-to-watchlist.module.scss";
 
 type Props = {
   film: Film;
@@ -35,13 +33,7 @@ export function WatchListButton({ film, className }: Props) {
     <button
       type="button"
       onClick={onClick}
-      className={[
-        "pointer-events-auto inline-flex items-center gap-2 text-xs",
-        "text-zinc-300 hover:text-zinc-50 transition",
-        "rounded-md px-2 py-1 bg-white/5 hover:bg-white/10",
-        "border border-white/10",
-        className ?? "",
-      ].join(" ")}
+      className={[styles.button, className ?? ""].join(" ")}
       aria-pressed={inWatchList}
     >
       {inWatchList ? "✓ Added." : "+ Add to watchlist"}

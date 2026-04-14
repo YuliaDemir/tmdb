@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 
-import { STORAGE_KEY } from "../constants";
-import { store } from "../store/store";
-import { Film } from "../types";
+import { STORAGE_KEY } from "@/src/constants";
+import { store } from "@/src/store/store";
+import { Film } from "@/src/types";
 import { setWatchList } from "./watch-list-slice";
 
 export function Providers({ children }: { children: React.ReactNode }) {

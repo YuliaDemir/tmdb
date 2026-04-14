@@ -1,0 +1,88 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔸 верхняя часть */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* адаптив */
+@media (min-width: 640px) {
+  .row {
+    flex-direction: row;
+  }
+}
+
+/* 🔸 кнопка */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.12);
+
+  font-size: 14px;
+  color: rgb(250 250 250);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.button:hover {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 🔸 текст внутри кнопки */
+.buttonContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* стрелка */
+.arrow {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.button:hover .arrow {
+  opacity: 1;
+}
+
+/* 🔸 нижняя часть */
+.footer {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* текст */
+.text {
+  font-size: 12px;
+  color: rgb(161 161 170); /* zinc-400 */
+}
+
+/* подсветка */
+.highlight {
+  color: rgb(212 212 216); /* zinc-300 */
+}

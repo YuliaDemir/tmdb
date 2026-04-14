@@ -1,16 +1,15 @@
 import { ReactNode } from "react";
+import styles from "./info-rounded.module.scss";
 
 export const InfoRounded = ({ data }: { data: ReactNode[] }) => {
-  data = data.filter(
+  const filtered = data.filter(
     (el) => el !== null && el !== undefined && el.toString().trim() !== "",
   );
+
   return (
     <>
-      {data.map((item, index) => (
-        <span
-          key={index}
-          className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1"
-        >
+      {filtered.map((item, index) => (
+        <span key={index} className={styles.item}>
           {item}
         </span>
       ))}

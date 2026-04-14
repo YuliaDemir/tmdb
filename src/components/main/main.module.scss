@@ -1,0 +1,30 @@
+.main {
+  min-height: 100vh;
+  background: rgb(9 9 11); // zinc-950
+  color: rgb(212 212 216); // zincText
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      800px circle at 20% 0%,
+      rgba(120, 119, 198, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 80% 10%,
+      rgba(255, 119, 198, 0.1),
+      transparent 60%
+    );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,27 @@
+.list {
+  margin-top: 28px;
+
+  li + li {
+    margin-top: 12px;
+  }
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.035);
+  padding: 16px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 0.2);
+  }
+}

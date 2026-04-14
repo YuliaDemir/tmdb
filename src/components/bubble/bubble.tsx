@@ -2,23 +2,14 @@
 
 import { WatchList, ListIcon } from "@components";
 import {
-  watchlistCorner,
-  bubbleWrapper,
   bubbleBase,
   bubbleOpen,
   bubbleClosed,
-  iconWrap,
-  iconBg,
-  iconFg,
-  iconUnderline,
-  panelOpen,
-  panelClosed,
-  panel,
-  zincText,
 } from "@tconst";
+import styles from "./bubble.module.scss";
 import { useState } from "react";
 
-import { cn } from "../lib/utils";
+import { cn } from "@/src/lib/utils";
 
 const label = "Your Watchlist";
 
@@ -26,7 +17,7 @@ export function WatchlistBubble() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cn(bubbleWrapper, watchlistCorner)}>
+    <div className={styles.wrapper}>
       <div
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -35,16 +26,16 @@ export function WatchlistBubble() {
         aria-label={label}
         className={cn(bubbleBase, open ? bubbleOpen : bubbleClosed)}
       >
-        <span className={iconWrap}>
-          <span className={iconBg} />
-          <span className={iconFg}>
-            <ListIcon width={18} height={18} className={zincText} />
+        <span className={styles.iconWrap}>
+          <span className={styles.iconBg} />
+          <span className={styles.iconFg}>
+            <ListIcon width={18} height={18} className={styles.zincText} />
           </span>
 
-          <span className={iconUnderline} />
+          <span className={styles.iconUnderline} />
         </span>
 
-        <div className={cn(panel, open ? panelOpen : panelClosed)}>
+        <div className={cn(styles.panel, open ? styles.panelOpen : styles.panelClosed)}>
           <WatchList />
         </div>
       </div>
