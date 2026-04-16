@@ -3,37 +3,44 @@
 import { WatchList, ListIcon } from "@components";
 import styles from "./bubble.module.scss";
 import { useState } from "react";
-
 import { cn } from "@/src/lib/utils";
 
 const label = "Your Watchlist";
 
 export function WatchlistBubble() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={styles.wrapper}>
       <div
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
-        onFocus={() => setIsOpen(true)}
-        onBlur={() => setIsOpen(false)}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
         aria-label={label}
         className={cn(
           styles.bubble,
-          isOpen ? styles.bubbleOpen : styles.bubbleClosed
+          open ? styles.bubbleOpen : styles.bubbleClosed
         )}
       >
-        <span className={styles.iconWrap}>
-          <span className={styles.iconBg} />
-          <span className={styles.iconFg}>
-            <ListIcon width={18} height={18} className={styles.zincText} />
+        <div className={styles.header}>
+          <span className={styles.iconWrap}>
+            <span className={styles.iconBg} />
+            <span className={styles.iconFg}>
+              <ListIcon width={18} height={18} className={styles.icon} />
+            </span>
+            <span className={styles.iconUnderline} />
           </span>
 
-          <span className={styles.iconUnderline} />
-        </span>
+          {open && <span className={styles.title}>Watchlist</span>}
+        </div>
 
-        <div className={cn(styles.panel, isOpen ? styles.panelOpen : styles.panelClosed)}>
+        <div
+          className={cn(
+            styles.panel,
+            open ? styles.panelOpen : styles.panelClosed
+          )}
+        >
           <WatchList />
         </div>
       </div>

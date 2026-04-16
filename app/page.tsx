@@ -22,22 +22,14 @@ export default function Home() {
     <div className={styles.container}>
       <Form onSearch={onSearch} loading={loading} />
 
-      <p className={styles.note}>
-        This product uses the TMDB API but is not endorsed or certified by
-        TMDB.
-      </p>
+      
 
       {error ? (
         <div className={styles.errorPanel}>{error}</div>
       ) : items.length > 0 ? (
         <List items={sortedItems} />
-      ) : (
-        <div className={styles.infoPanel}>
-          Type something into e <span className={styles.highlight}>“Dune”</span>,{" "}
-          <span className={styles.highlight}>“Fight Club”</span>,{" "}
-          <span className={styles.highlight}>“Dark”</span>.
-        </div>
-      )}
+      ) : null
+      }
     </div>
   );
 }
