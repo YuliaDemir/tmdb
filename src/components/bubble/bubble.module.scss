@@ -1,0 +1,112 @@
+.wrapper {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+}
+
+.bubble {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(24 24 27 / 0.92);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+  backdrop-filter: blur(18px);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border-radius 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.bubbleClosed {
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  opacity: 0.96;
+}
+
+.bubbleOpen {
+  width: min(420px, calc(100vw - 32px));
+  height: min(70vh, 640px);
+  border-radius: 24px;
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(250 250 250);
+}
+
+.iconWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.iconBg {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgb(24 24 27 / 0.92);
+}
+
+.iconFg {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: rgb(212 212 216);
+}
+
+.iconUnderline {
+  display: none;
+}
+
+.panel {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.panelOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.panelClosed {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+}
